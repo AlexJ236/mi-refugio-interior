@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
+import path from 'path';
 
 export default defineConfig({
   plugins: [
@@ -9,9 +10,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
       devOptions: {
-        enabled: true // Para probar PWA en desarrollo
+        enabled: true
       },
-      workbox: { // Para cacheo básico y offline
+      workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff2}']
       },
       manifest: {
@@ -60,4 +61,15 @@ export default defineConfig({
       }
     })
   ],
+  base: '/',
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    assetsDir: 'assets',
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+  },
 })
