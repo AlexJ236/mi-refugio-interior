@@ -1,29 +1,29 @@
 # Logs
-# logs
-# *.log
-# npm-debug.log*
-# yarn-debug.log*
-# yarn-error.log*
-# pnpm-debug.log*
-# lerna-debug.log*
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
 # Diagnostic reports
-# report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 
 # Runtime data
-# pids
-# *.pid
-# *.seed
-# *.pid.lock
+pids
+*.pid
+*.seed
+*.pid.lock
 
 # Coverage data
-# lib-cov
-# coverage
-# *.lcov
-# .nyc_output
+lib-cov
+coverage
+*.lcov
+.nyc_output
 
 # Grunt intermediate storage
-# .grunt
+.grunt
 
 # Dependency directories
 node_modules/
@@ -47,7 +47,7 @@ web_modules/
 
 # Parcel cache files
 .cache
-# .parcel-cache
+.parcel-cache
 
 # Next.js build outputs
 .next
@@ -73,7 +73,7 @@ build
 .fusebox/
 
 # DynamoDB Local files
-# .dynamodb/
+.dynamodb/
 
 # TernJS port file
 .tern-port
