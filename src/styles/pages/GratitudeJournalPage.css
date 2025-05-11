@@ -1,0 +1,43 @@
+.gratitude-journal-page {
+    padding: var(--spacing-md);
+  }
+  
+  .gratitude-journal-page .page-title {
+    color: var(--secondary-purple); /* Título en morado para diferenciar */
+  }
+  
+  .gratitude-journal-page .page-subtitle {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .gratitude-content-layout {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+  }
+  
+  @media (min-width: 768px) { /* Para pantallas más grandes, dos columnas */
+    .gratitude-content-layout {
+      flex-direction: row;
+      align-items: flex-start; /* Alinea items al inicio si tienen alturas diferentes */
+    }
+    .gratitude-form-section {
+      flex: 1; /* El formulario ocupa una parte */
+      max-width: 450px; /* Ancho máximo para el formulario */
+      position: sticky; /* Para que el formulario se quede fijo al hacer scroll en la lista */
+      top: calc(70px + var(--spacing-lg)); /* Altura de navbar + un margen */
+    }
+    .gratitude-list-section {
+      flex: 2; /* La lista ocupa más espacio */
+    }
+  }
+  
+  .gratitude-list-section h2 {
+      font-family: var(--text-romantic-heading);
+      color: var(--primary-pink);
+      text-align: center;
+      margin-bottom: var(--spacing-lg);
+      font-size: 2.2rem;
+  }

@@ -1,0 +1,79 @@
+.theme-preview-area {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    border: 2px dashed var(--preview-accent-lavender, var(--accent-lavender));
+    border-radius: var(--border-radius-lg);
+    background-color: var(--preview-background-soft, var(--background-soft)); 
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-preview-area h4 {
+    text-align: center;
+    color: var(--preview-secondary-purple, var(--secondary-purple));
+    font-family: var(--text-romantic-heading);
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.preview-card {
+    background-color: var(--card-bg); 
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 3px 10px var(--shadow-color);
+    text-align: left;
+    border: 1px solid var(--preview-accent-lavender, var(--border-color)); /* Borde sutil */
+}
+
+.preview-card-title {
+    font-family: var(--text-romantic-heading);
+    color: var(--preview-primary-pink, var(--primary-pink));
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.preview-card-text {
+    color: var(--preview-text-comfort, var(--text-comfort));
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.preview-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: flex-start;
+    margin-top: var(--spacing-md);
+}
+
+.preview-btn {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    border: none;
+    cursor: default; 
+    font-family: var(--text-body-font);
+    font-weight: 600;
+}
+
+.preview-btn-primary {
+    background-color: var(--preview-primary-pink, var(--button-primary-bg));
+    color: var(--button-primary-text, var(--text-light)); 
+}
+
+.preview-btn-secondary {
+    background-color: var(--preview-accent-lavender, var(--button-secondary-bg));
+    color: var(--button-secondary-text, var(--text-main));
+    border: 1px solid var(--preview-secondary-purple, var(--secondary-purple));
+}
+.preview-btn-secondary:hover {
+    opacity: 0.8;
+}
+
+
+.preview-note {
+    text-align: center;
+    font-style: italic;
+    font-size: 0.85rem;
+    margin-top: var(--spacing-lg);
+    color: var(--preview-text-comfort, var(--text-comfort));
+}

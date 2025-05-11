@@ -1,0 +1,60 @@
+.input-field-group {
+  margin-bottom: var(--spacing-lg);
+  width: 100%;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 1.05rem; /* Ligeramente más grande para destacar */
+}
+
+.required-asterisk {
+  color: var(--primary-pink);
+  margin-left: var(--spacing-xs);
+}
+
+.input-element {
+  width: 100%;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-md);
+  background-color: #fff; /* Fondo blanco para inputs */
+  color: var(--text-main);
+  font-size: 1rem;
+  font-family: var(--text-body-font);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.input-element::placeholder {
+  color: var(--text-placeholder);
+  font-style: italic;
+}
+
+.input-element:focus {
+  outline: none;
+  border-color: var(--input-border-focus);
+  box-shadow: 0 0 0 3px rgba(161, 106, 232, 0.2); /* Sombra de foco suave morada */
+}
+
+.input-element.input-error {
+  border-color: var(--error-color);
+  background-color: #fff5f5; /* Fondo muy claro para error */
+}
+
+.input-element.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(216, 0, 50, 0.2); /* Sombra de foco para error */
+}
+
+.input-textarea {
+  min-height: 120px;
+  resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+.error-text {
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: var(--spacing-xs);
+}

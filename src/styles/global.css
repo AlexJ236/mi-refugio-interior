@@ -1,0 +1,135 @@
+@import './variables.css';
+
+:root {
+  --sidebar-width-desktop: 250px;
+  /* Ancho máximo del bloque de contenido principal */
+  --page-content-max-width: 1300px;
+  /* Padding vertical general para el área de contenido */
+  --main-content-padding-vertical: var(--spacing-xl);
+  /* Padding horizontal para el contenido en móvil */
+  --main-content-padding-horizontal-mobile: var(--spacing-md);
+}
+
+/* Reset básico y box-sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--text-body-font);
+  background-color: var(--background-soft);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Contenedor principal */
+.app-container-with-sidebar {
+    /* display: flex; No es necesario si la sidebar es fixed */
+    min-height: 100vh;
+    position: relative; /* Para el contexto de la sidebar fixed */
+}
+
+/* Área principal del contenido */
+.main-content-area {
+  /* Padding base para móvil */
+  padding: var(--main-content-padding-vertical) var(--main-content-padding-horizontal-mobile);
+  box-sizing: border-box;
+  min-width: 0;
+  margin-left: 0; /* Por defecto (móvil) */
+  width: 100%; /* Por defecto */
+  transition: margin-left 0.3s ease-in-out, padding-left 0.3s ease-in-out;
+}
+
+/* --- Desktop Styles --- */
+@media (min-width: 993px) {
+  /* Aplicar margen izquierdo al main-content-area para dejar espacio a la sidebar FIJA */
+  .app-container-with-sidebar.has-sidebar .main-content-area {
+      margin-left: var(--sidebar-width-desktop);
+      /* El padding se define en el contenedor hijo ahora */
+      padding: 0; /* Resetear padding aquí */
+      /* El ancho efectivo será 100% del viewport MENOS el ancho de la sidebar */
+      width: calc(100% - var(--sidebar-width-desktop));
+  }
+
+  /* Login page (sin sidebar en desktop) */
+   .app-container-with-sidebar.no-sidebar .main-content-area {
+       margin-left: 0;
+       width: 100%;
+       padding: var(--main-content-padding-vertical) var(--spacing-xxl); /* Padding amplio y simétrico */
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+   }
+
+   /* *** Centrar el contenedor principal de la PÁGINA *** */
+   .main-content-area > *:first-child:not(script):not(.modal-overlay-beautiful):not(#root),
+   .page-wrapper /* O usa una clase común .page-wrapper en el div principal de tus páginas */
+   {
+        max-width: var(--page-content-max-width);
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%; /* Ocupa espacio hasta max-width dentro de su padre */
+        /* Padding interno del bloque de contenido */
+        padding: var(--main-content-padding-vertical) var(--main-content-padding-horizontal-mobile);
+        box-sizing: border-box;
+   }
+   /* Si quieres más padding horizontal dentro del bloque centrado en desktop: */
+    .app-container-with-sidebar.has-sidebar .main-content-area > *:first-child:not(script):not(.modal-overlay-beautiful):not(#root),
+    .app-container-with-sidebar.has-sidebar .page-wrapper {
+        padding-left: var(--spacing-xl);
+        padding-right: var(--spacing-xl);
+    }
+}
+
+/* --- Estilos Comunes (Títulos, Mensajes, Formularios, etc.) --- */
+.container { width: 100%; margin-bottom: var(--spacing-xl); padding: var(--spacing-xl); background-color: var(--card-bg); border-radius: var(--border-radius-lg); box-shadow: 0 6px 20px var(--shadow-color); box-sizing: border-box; }
+.page-title { font-family: var(--text-romantic-heading); color: var(--primary-pink); font-size: 2.6rem; text-align: center; margin-bottom: var(--spacing-sm); font-weight: 700; line-height: 1.2; margin-top: 0; }
+.page-subtitle { font-family: var(--text-body-font); color: var(--text-comfort); font-size: 1.15rem; text-align: center; margin-top: 0; margin-bottom: var(--spacing-xl); font-weight: 400; max-width: 750px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+.text-center { text-align: center; }
+.error-message, .success-message { border: 1px solid; padding: var(--spacing-md); border-radius: var(--border-radius-sm); margin: var(--spacing-md) auto; text-align: center; font-size: 0.95rem; max-width: 600px; box-sizing: border-box; }
+.error-message { color: var(--error-color); background-color: #ffebee; border-color: var(--error-color); }
+.success-message { color: var(--success-color); background-color: #e8f5e9; border-color: var(--success-color); }
+.form-container { background-color: var(--card-bg); padding: var(--spacing-xl); border-radius: var(--border-radius-lg); box-shadow: 0 5px 15px var(--shadow-color); max-width: 550px; margin: var(--spacing-lg) auto; width: 100%; box-sizing: border-box;}
+.daily-card-form-container, .support-plan-form { max-width: 800px; width: 100%; margin: var(--spacing-lg) auto; box-sizing: border-box;}
+.form-container h2, .form-container h3 { text-align: center; color: var(--secondary-purple); font-family: var(--text-romantic-heading); margin-bottom: var(--spacing-lg); }
+.form-group { margin-bottom: var(--spacing-lg); }
+.form-group label, .input-label { display: block; margin-bottom: var(--spacing-sm); color: var(--text-main); font-weight: 600; font-size: 1rem; }
+.mb-sm { margin-bottom: var(--spacing-sm); } .mb-md { margin-bottom: var(--spacing-md); } .mb-lg { margin-bottom: var(--spacing-lg); }
+.mt-sm { margin-top: var(--spacing-sm); } .mt-md { margin-top: var(--spacing-md); } .mt-lg { margin-top: var(--spacing-lg); }
+.ml-sm { margin-left: var(--spacing-sm); } .ml-md { margin-left: var(--spacing-md); }
+
+
+/* --- Ajustes Responsivos --- */
+@media (max-width: 992px) { /* Tablet y Móvil */
+  .main-content-area {
+     padding: var(--main-content-padding-vertical) var(--main-content-padding-horizontal-mobile);
+     margin-left: 0;
+     width: 100%;
+  }
+  .page-title { font-size: 2.2rem; }
+  .page-subtitle { font-size: 1.1rem; }
+
+  .main-content-area > *:first-child:not(script):not(.modal-overlay-beautiful):not(#root),
+  .page-wrapper {
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      padding-left: 0;
+      padding-right: 0;
+  }
+}
+@media (max-width: 576px) {
+  .main-content-area {
+     padding: var(--spacing-md) var(--spacing-sm);
+  }
+   .container { padding: var(--spacing-md); margin-bottom: var(--spacing-lg);}
+  .page-title { font-size: 1.8rem; margin-bottom: var(--spacing-xs); }
+  .page-subtitle { font-size: 1rem; margin-bottom: var(--spacing-lg); }
+  .form-container, .daily-card-form-container, .support-plan-form { padding: var(--spacing-lg); max-width: 100%; }
+  .error-message, .success-message { max-width: 100%; margin-left: 0; margin-right: 0; }
+}

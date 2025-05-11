@@ -1,0 +1,88 @@
+.theme-options-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+.theme-option-label {
+    display: block;
+    cursor: pointer;
+}
+
+.theme-option-label input[type="radio"] {
+    display: none; /* Ocultar el radio button real */
+}
+
+.theme-option-card { /* Contenedor visual de la opción */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: var(--spacing-md);
+    border: 2px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    transition: var(--transition-fast);
+    background-color: var(--card-bg);
+    height: 100%; /* Para que todas las tarjetas tengan la misma altura */
+}
+
+.theme-option-label:hover .theme-option-card {
+    border-color: var(--primary-pink);
+    box-shadow: 0 2px 8px var(--shadow-color);
+}
+
+.theme-option-label.active .theme-option-card {
+    border-color: var(--secondary-purple);
+    box-shadow: 0 0 0 2px var(--secondary-purple), 0 3px 10px var(--shadow-strong-color);
+    background-color: color-mix(in srgb, var(--secondary-purple) 10%, var(--card-bg));
+}
+
+.theme-name {
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1rem;
+    text-align: center;
+}
+
+.theme-preview {
+    display: flex;
+    gap: 2px;
+    height: 25px;
+    width: 80%;
+    max-width: 120px;
+    border-radius: var(--border-radius-sm);
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--text-main) 20%, transparent);
+    margin-top: auto; /* Empujar hacia abajo */
+}
+.theme-preview.custom-preview {
+    font-size: 1.5rem; /* Para el emoji */
+    align-items: center;
+    justify-content: center;
+    background-color: var(--background-alt);
+}
+
+
+.preview-color { /* Para los temas predefinidos */
+    flex-grow: 1;
+    height: 100%;
+}
+.preview-color.main { background-color: var(--preview-primary-pink, var(--primary-pink)); }
+.preview-color.accent1 { background-color: var(--preview-secondary-purple, var(--secondary-purple)); }
+.preview-color.accent2 { background-color: var(--preview-accent-lavender, var(--accent-lavender)); }
+
+
+/* Colores para los temas predefinidos en la SELECCIÓN */
+.theme-preview[data-theme-class="theme-default"] .main { background-color: #FF85A1; }
+.theme-preview[data-theme-class="theme-default"] .accent1 { background-color: #A16AE8; }
+.theme-preview[data-theme-class="theme-default"] .accent2 { background-color: #D9B8FF; }
+
+.theme-preview[data-theme-class="theme-lavender-dream"] .main { background-color: #C6A7FF; }
+.theme-preview[data-theme-class="theme-lavender-dream"] .accent1 { background-color: #8A55E0; }
+.theme-preview[data-theme-class="theme-lavender-dream"] .accent2 { background-color: #E9DBFF; }
+
+.theme-preview[data-theme-class="theme-serene-ocean"] .main { background-color: #64C5EB; }
+.theme-preview[data-theme-class="theme-serene-ocean"] .accent1 { background-color: #2D789E; }
+.theme-preview[data-theme-class="theme-serene-ocean"] .accent2 { background-color: #B2EBF2; }

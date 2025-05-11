@@ -1,0 +1,85 @@
+/* GratitudeForm */
+.gratitude-form-container {
+    background-color: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 6px 20px var(--shadow-color);
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+  }
+  
+  .gratitude-form-container h3 {
+    font-family: var(--text-romantic-heading);
+    color: var(--secondary-purple); /* Un tono diferente al de DailyCard */
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .gratitude-form .btn-primary {
+    width: 100%;
+    margin-top: var(--spacing-md);
+  }
+  
+  /* GratitudeList */
+  .gratitude-list {
+    list-style: none;
+    padding: 0;
+    margin-top: var(--spacing-xl);
+  }
+  
+  .gratitude-list-empty {
+    text-align: center;
+    color: var(--text-comfort);
+    font-size: 1.15rem;
+    padding: var(--spacing-lg);
+    background-color: rgba(245, 230, 255, 0.7); /* Fondo lavanda muy suave */
+    border-radius: var(--border-radius-md);
+    border: 1px dashed var(--secondary-purple);
+  }
+  
+  /* GratitudeItem */
+  .gratitude-item {
+    background-color: #fff;
+    border-left: 5px solid var(--primary-pink); /* Un borde distintivo */
+    border-radius: var(--border-radius-sm) var(--border-radius-md) var(--border-radius-md) var(--border-radius-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+    box-shadow: 0 3px 10px var(--shadow-color);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+  }
+  
+  .gratitude-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 6px 15px var(--shadow-strong-color);
+  }
+  
+  .gratitude-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .gratitude-item-date {
+    font-size: 0.85rem;
+    color: var(--text-comfort);
+    font-style: italic;
+  }
+  
+  .gratitude-item-text {
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    white-space: pre-wrap; /* Para respetar saltos de línea en la gratitud */
+  }
+  
+  .gratitude-item-actions {
+    text-align: right;
+  }
+  
+  .gratitude-item-actions .btn {
+    margin-left: var(--spacing-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+  }

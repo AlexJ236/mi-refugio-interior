@@ -1,0 +1,175 @@
+.skill-module-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+  
+  .skill-module-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: 0 5px 20px var(--shadow-color);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none; /* Para cuando es un Link */
+  }
+  
+  .skill-module-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 30px var(--shadow-strong-color);
+  }
+  
+  .skill-module-card-header {
+    /* Usa el color del módulo como fondo o borde superior */
+    padding: var(--spacing-md);
+    margin: calc(-1 * var(--spacing-lg)) calc(-1 * var(--spacing-lg)) var(--spacing-md) calc(-1 * var(--spacing-lg)); /* Extiende el fondo */
+    border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  }
+  
+  .skill-module-card-header h3 {
+    font-family: var(--text-romantic-heading);
+    /* El color del texto se puede definir en el JS si el fondo es muy oscuro/claro */
+    color: var(--text-light); /* Por defecto para fondos coloridos */
+    font-size: 2rem;
+    margin: 0;
+    text-align: center;
+  }
+  
+  .skill-module-card p {
+    color: var(--text-comfort);
+    font-size: 1rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Para que la descripción ocupe espacio */
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .skill-module-card .btn { /* Botón dentro de la tarjeta de módulo */
+    margin-top: auto; /* Empuja el botón hacia abajo */
+    background-color: transparent;
+    border: 2px solid; /* El color se aplicará en el JS */
+    /* Color de texto se aplicará en JS */
+    transition: background-color var(--transition-fast), color var(--transition-fast);
+  }
+  
+  .skill-module-card .btn:hover {
+    /* El color de fondo y texto se aplicará en el JS */
+    color: var(--text-light) !important; /* Forzar color de texto en hover */
+  }
+  
+  
+  /* SkillModuleDisplay (vista detallada de un módulo) */
+  .skill-module-detail-container {
+    padding: var(--spacing-lg);
+  }
+  .skill-module-detail-container .module-description {
+      font-size: 1.15rem;
+      color: var(--text-comfort);
+      text-align: center;
+      margin-bottom: var(--spacing-xl);
+      padding: var(--spacing-md);
+      background-color: var(--background-alt);
+      border-radius: var(--border-radius-md);
+  }
+  
+  .skill-list-in-module {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .skill-list-in-module li a { /* Estilo para los links de habilidades */
+    display: block;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-md);
+    border-left: 4px solid var(--accent-lavender);
+    color: var(--text-main);
+    text-decoration: none;
+    box-shadow: 0 2px 5px var(--shadow-color);
+    transition: var(--transition-smooth);
+  }
+  .skill-list-in-module li a:hover {
+    border-left-color: var(--primary-pink);
+    background-color: var(--background-alt);
+    transform: translateX(5px);
+    box-shadow: 0 4px 10px var(--shadow-strong-color);
+  }
+  .skill-list-in-module li a strong {
+    display: block;
+    font-size: 1.3rem;
+    color: var(--secondary-purple);
+    margin-bottom: var(--spacing-xs);
+  }
+  
+  
+  /* SkillItem (detalle de una habilidad específica) */
+  .skill-item-container {
+    background-color: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 5px 20px var(--shadow-color);
+    margin-top: var(--spacing-lg);
+  }
+  
+  .skill-item-container h3 { /* Título de la habilidad */
+    font-family: var(--text-romantic-heading);
+    color: var(--primary-pink);
+    font-size: 2.3rem;
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .skill-item-container .skill-description,
+  .skill-item-container .skill-exercise {
+    color: var(--text-comfort);
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+  }
+  .skill-item-container .skill-exercise {
+      padding: var(--spacing-md);
+      background-color: var(--background-alt);
+      border-left: 4px solid var(--secondary-purple);
+      border-radius: var(--border-radius-sm);
+  }
+  
+  .skill-item-container .skill-exercise strong {
+    color: var(--text-main);
+    font-weight: bold;
+  }
+  
+  .back-to-module-link {
+    display: inline-block;
+    margin-bottom: var(--spacing-lg);
+    color: var(--secondary-purple);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .back-to-module-link:hover {
+    color: var(--primary-pink);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 600px) {
+    .skill-module-list {
+      grid-template-columns: 1fr; /* Una columna en móviles pequeños */
+      gap: var(--spacing-md);
+    }
+    .skill-module-card {
+      padding: var(--spacing-md);
+    }
+    .skill-module-card-header h3 {
+      font-size: 1.8rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+      .skill-item-container h3 { /* Título de la habilidad */
+          font-size: 2rem;
+      }
+      .skill-list-in-module li a strong {
+          font-size: 1.15rem;
+      }
+  }

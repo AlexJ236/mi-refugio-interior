@@ -1,0 +1,263 @@
+/* src/styles/components/Sidebar.css */
+:root {
+  --sidebar-transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  --sidebar-bg: linear-gradient(170deg, var(--secondary-purple), var(--primary-pink));
+  --sidebar-link-hover-bg: rgba(255, 255, 255, 0.1);
+  --sidebar-link-active-bg: rgba(255, 255, 255, 0.2);
+  --sidebar-mobile-width: 280px; 
+  /* --sidebar-width-desktop ya está en global.css o variables.css, asegúrate que sea consistente */
+  /* var(--sidebar-width-desktop) debe ser usado abajo */
+}
+
+.sidebar-beautiful {
+  background: var(--sidebar-bg-gradient);
+  color: var(--sidebar-text-color, var(--text-light));
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: var(--sidebar-width-desktop); /* Usar variable global */
+  z-index: 1100; /* Alto para estar encima de otro contenido */
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px 0px 15px rgba(74, 13, 102, 0.2); /* Sombra más sutil */
+  transition: var(--sidebar-transition), background 0.3s ease;
+  transform: translateX(0); /* Visible por defecto en desktop */
+  overflow: hidden; /* Para controlar el scroll del contenido interno */
+}
+
+.sidebar-sticky-content {
+  padding: var(--spacing-md); /* Padding general */
+  overflow-y: auto;
+  flex-grow: 1;
+  /* Estilos para la barra de scroll si es necesario */
+}
+.sidebar-sticky-content::-webkit-scrollbar { width: 6px; }
+.sidebar-sticky-content::-webkit-scrollbar-track { background: rgba(0,0,0,0.05); border-radius: 3px;}
+.sidebar-sticky-content::-webkit-scrollbar-thumb { background: var(--accent-lavender); border-radius: 3px;}
+.sidebar-sticky-content::-webkit-scrollbar-thumb:hover { background: #fff; }
+
+
+.sidebar-brand-beautiful {
+  font-family: var(--text-romantic-heading);
+  color: #fff;
+  font-size: 2rem; /* Un poco más pequeño para acomodar el botón X en móvil */
+  text-decoration: none;
+  font-weight: 700;
+  display: block;
+  text-align: center;
+  padding: var(--spacing-sm) 0;
+  margin-bottom: var(--spacing-lg); /* Menos margen inferior si el botón X va cerca */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+  transition: color 0.3s ease;
+  position: relative; /* Para posicionar el botón de cierre relativo a esto si se desea */
+}
+.sidebar-brand-beautiful:hover {
+  color: var(--accent-lavender);
+}
+
+.sidebar-nav {
+  margin-top: var(--spacing-sm); /* Reducir si es necesario */
+}
+.sidebar-nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.sidebar-nav li {
+  margin-bottom: var(--spacing-xs);
+}
+
+.sidebar-nav-link { /* Clase común para NavLink */
+  color: var(--sidebar-text-color, var(--text-light));
+  text-decoration: none;
+  font-weight: 500; /* Era 500, puede ser 600 si prefieres */
+  font-size: 1rem; /* Ajustar si es necesario */
+  padding: var(--spacing-sm) var(--spacing-md); /* Padding ajustado */
+  border-radius: var(--border-radius-md);
+  transition: background-color 0.2s ease, color 0.2s ease, padding-left 0.2s ease, border-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm); /* Espacio entre icono y texto */
+  border-left: 4px solid transparent;
+  white-space: nowrap;
+}
+.sidebar-nav-link .nav-icon { /* Estilo para los iconos span */
+    display: inline-block;
+    width: 20px; /* Ancho fijo para alineación */
+    text-align: center;
+    margin-right: var(--spacing-xs); /* Pequeño margen adicional */
+    font-size: 1.1em; /* Hacer emojis un poco más grandes */
+}
+
+.sidebar-nav-link:hover, .sidebar-nav-link:focus { /* Añadir focus state */
+  background-color: var(--sidebar-link-hover-bg, rgba(255, 255, 255, 0.1));  
+  color: #fff;
+  border-left-color: var(--accent-lavender);
+  outline: none;
+}
+.sidebar-nav-link.active {
+  background-color: var(--sidebar-link-active-bg, rgba(255, 255, 255, 0.2));
+  color: #fff;
+  font-weight: 700;
+  border-left-color: #fff;
+}
+.sidebar-nav-link.active .nav-icon {
+    opacity: 1; /* Asegurar que el icono activo sea completamente visible */
+}
+
+
+.sidebar-footer {
+  padding: var(--spacing-md);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0; /* Para que no se encoja */
+}
+.sidebar-user-info {
+  font-size: 0.9rem;
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+  color: var(--accent-lavender);
+  line-height: 1.4;
+}
+.sidebar-user-info span { 
+  display: block; 
+}
+
+.sidebar-user-info .user-name {
+  font-weight: 600;
+  color: #fff;
+  font-size: 1.05rem; /* Ligeramente más grande */
+}
+.btn-sos-sidebar {
+  width: 100%;
+  margin-bottom: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  font-size: 1rem;
+}
+.btn-logout-sidebar {
+  width: 100%;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.3); /* Borde un poco más sutil */
+  color: var(--text-light);
+  padding: var(--spacing-sm);
+  font-size: 0.95rem;
+  text-align: center;
+}
+.btn-logout-sidebar:hover {
+  background-color: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* --- ESTILOS PARA MÓVIL --- */
+
+/* Botón de toggle hamburguesa/X (el que está fuera del sidebar) */
+.sidebar-mobile-toggle {
+  display: none; /* Oculto por defecto, se muestra en media query */
+  position: fixed;
+  top: 15px;  /* Ajustar posición */
+  left: 15px; /* Ajustar posición */
+  z-index: 1150; /* Encima del sidebar cuando está cerrado, y encima del overlay */
+  background: var(--secondary-purple);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md); /* Consistente */
+  width: 44px; /* Tamaño del botón */
+  height: 44px;
+  font-size: 1.6rem; /* Tamaño del icono */
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+  line-height: 1;
+  padding: 0;
+  display: flex; /* Para centrar el icono */
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.sidebar-mobile-toggle:hover {
+    background-color: var(--primary-pink);
+}
+
+/* NUEVO: Botón de cierre (X) DENTRO del sidebar, solo visible en móvil cuando el sidebar está abierto */
+.sidebar-internal-close-toggle {
+    display: none; /* Oculto por defecto, se mostrará en móvil */
+    position: absolute;
+    top: 10px;      /* Ajustar posición DENTRO del sidebar */
+    right: 10px;   /* Ajustar posición DENTRO del sidebar */
+    background: transparent;
+    color: var(--text-light);
+    border: none;
+    font-size: 1.8rem; /* Tamaño del icono X */
+    line-height: 1;
+    padding: var(--spacing-xs);
+    cursor: pointer;
+    z-index: 1101; /* Encima del contenido del sidebar */
+}
+.sidebar-internal-close-toggle:hover {
+    color: var(--accent-lavender); /* O un color de hover más brillante */
+}
+
+
+.sidebar-overlay {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Overlay más oscuro */
+  z-index: 1099; /* Debajo del sidebar pero encima del contenido principal */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s; /* Transición para el overlay */
+}
+
+
+/* Media Query para Tablet y Móvil (ej. < 992px) */
+@media (max-width: 992px) {
+  .sidebar-mobile-toggle {
+    display: flex; /* Mostrar el botón hamburguesa/X externo */
+  }
+  
+  .sidebar-beautiful.open .sidebar-mobile-toggle {
+    transform: translateX(var(--sidebar-mobile-width));
+  }
+  
+  .sidebar-internal-close-toggle {
+      display: block; /* Mostrar el botón X interno cuando el sidebar está abierto en móvil */
+  }
+
+  /* Ajustar padding superior del contenido del sidebar para dejar espacio al botón X interno */
+  .sidebar-beautiful.open .sidebar-sticky-content {
+      padding-top: calc(var(--spacing-lg) + 30px); /* Ajusta este valor según el tamaño y posición de tu X */
+  }
+
+
+  .sidebar-beautiful {
+    transform: translateX(calc(-1 * var(--sidebar-mobile-width))); /* Oculto fuera de la pantalla */
+    width: var(--sidebar-mobile-width); /* Ancho para móvil */
+    box-shadow: 5px 0px 20px rgba(74, 13, 102, 0.3); /* Sombra más pronunciada en móvil */
+  }
+
+  .sidebar-beautiful.open {
+    transform: translateX(0); /* Visible en pantalla */
+  }
+
+  .sidebar-overlay {
+    display: block; /* Mostrar el overlay en móvil */
+  }
+  .sidebar-beautiful.open + .sidebar-overlay { /* El overlay se activa cuando el sidebar tiene clase 'open' */
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s linear 0s;
+  }
+}
+
+/* Ocultar el toggle móvil completamente en pantallas grandes (desktop) */
+@media (min-width: 992.02px) {
+    .sidebar-mobile-toggle {
+        display: none !important; /* Asegurar que se oculte */
+    }
+    .sidebar-internal-close-toggle {
+        display: none !important; /* Ocultar también el X interno en desktop */
+    }
+}

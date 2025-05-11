@@ -1,0 +1,97 @@
+.daily-card-form-container {
+    background-color: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 6px 20px var(--shadow-color);
+    max-width: 700px;
+    margin: var(--spacing-lg) auto;
+  }
+  
+  .daily-card-form-container h2 {
+    font-family: var(--text-romantic-heading);
+    color: var(--primary-pink);
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+  }
+  
+  .daily-card-form .form-group {
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .daily-card-form .btn-primary {
+    width: 100%;
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+  
+  /* DailyCardList */
+  .daily-card-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    padding: 0;
+    list-style: none;
+  }
+  
+  .daily-card-list-empty {
+    text-align: center;
+    color: var(--text-comfort);
+    font-size: 1.2rem;
+    padding: var(--spacing-xl);
+    background-color: rgba(255, 240, 245, 0.7); /* Fondo rosa muy suave */
+    border-radius: var(--border-radius-md);
+    border: 1px dashed var(--accent-lavender);
+  }
+  
+  /* DailyCardItem */
+  .daily-card-item {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .daily-card-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-strong-color);
+  }
+  
+  .daily-card-item-header {
+    border-bottom: 1px solid var(--accent-lavender);
+    padding-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .daily-card-item-header h3 {
+    font-family: var(--text-romantic-heading);
+    color: var(--secondary-purple);
+    margin: 0;
+    font-size: 1.8rem;
+  }
+  
+  .daily-card-item-date {
+    font-size: 0.9rem;
+    color: var(--text-comfort);
+  }
+  
+  .daily-card-item-content p {
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.6;
+  }
+  
+  .daily-card-item-content strong {
+    color: var(--text-main);
+    font-weight: 600;
+  }
+  
+  .daily-card-item-actions {
+    margin-top: auto; /* Empuja las acciones al final de la tarjeta */
+    padding-top: var(--spacing-md);
+    display: flex;
+    justify-content: flex-end;
+    gap: var(--spacing-sm);
+  }

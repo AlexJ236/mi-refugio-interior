@@ -1,0 +1,73 @@
+.custom-theme-creator {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+    background-color: var(--background-soft);
+}
+.custom-theme-creator h4 {
+    text-align: center;
+    color: var(--secondary-purple);
+    font-family: var(--text-body-font);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.color-pickers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.color-picker-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+.color-picker-label {
+    font-size: 0.9rem;
+    color: var(--text-main);
+    font-weight: 500;
+}
+
+.color-picker-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    background-color: var(--card-bg);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    border: 1px solid var(--border-color);
+}
+
+.color-picker-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+.color-picker-input::-webkit-color-swatch-wrapper {
+    padding: 0;
+    border-radius: var(--border-radius-sm);
+}
+.color-picker-input::-webkit-color-swatch {
+    border: 1px solid var(--border-color); /* Borde sutil alrededor del swatch */
+    border-radius: var(--border-radius-sm);
+}
+.color-picker-input::-moz-color-swatch { /* Para Firefox */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm);
+}
+
+
+.color-picker-value {
+    font-size: 0.9rem;
+    color: var(--text-comfort);
+    font-family: monospace; /* Para que el código de color se vea bien */
+}

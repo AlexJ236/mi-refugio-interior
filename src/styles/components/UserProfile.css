@@ -1,0 +1,128 @@
+.user-profile-summary {
+    padding: var(--spacing-lg) var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 8px 25px var(--shadow-color);
+    text-align: center;
+    max-width: 550px;
+    margin: var(--spacing-lg) auto;
+    transition: background 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+    position: relative; /* Para posibles elementos decorativos */
+    overflow: hidden; /* Si se añaden pseudo-elementos */
+}
+
+/* Fondos de Gamificación */
+.profile-gradient-base {
+    background: linear-gradient(140deg, var(--background-alt), var(--accent-lavender));
+}
+.profile-gradient-level1 {
+    background: linear-gradient(140deg, var(--accent-lavender), var(--primary-pink));
+    box-shadow: 0 8px 30px color-mix(in srgb, var(--primary-pink) 40%, transparent);
+}
+.profile-gradient-level2 {
+    background: linear-gradient(140deg, var(--primary-pink), var(--secondary-purple));
+    box-shadow: 0 10px 35px color-mix(in srgb, var(--secondary-purple) 50%, transparent);
+}
+.profile-gradient-level2 h3,
+.profile-gradient-level2 p,
+.profile-gradient-level2 p strong {
+    color: var(--text-light); /* Textos claros para fondos oscuros */
+}
+.profile-gradient-level2 .welcome-message {
+    color: #fff; /* Blanco puro para el mensaje de bienvenida en nivel alto */
+    text-shadow: 0 0 8px var(--accent-lavender);
+}
+
+
+.user-profile-summary h3 {
+    font-family: var(--text-romantic-heading);
+    color: var(--secondary-purple);
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-sm);
+    line-height: 1.2;
+}
+
+.user-profile-summary p {
+    color: var(--text-comfort);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+    line-height: 1.6;
+}
+
+.user-profile-summary p strong {
+    color: var(--text-main);
+    font-weight: 600;
+}
+
+.user-profile-summary .welcome-message {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--primary-pink);
+    margin-bottom: var(--spacing-md);
+}
+
+.gamification-perk {
+    font-style: italic;
+    color: var(--success-color) !important; 
+    font-weight: 600;
+    margin-top: var(--spacing-xs);
+    font-size: 1.05rem !important;
+    background-color: color-mix(in srgb, var(--success-color) 15%, transparent);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    border-radius: var(--border-radius-sm);
+    display: inline-block; /* Para que el fondo se ajuste al texto */
+}
+
+.profile-gradient-level2 .gamification-perk {
+    color: color-mix(in srgb, var(--text-light) 90%, var(--success-color)) !important;
+    background-color: color-mix(in srgb, var(--success-color) 30%, transparent);
+}
+
+
+/* Estilos para Logros */
+.achievements-preview {
+    margin-top: var(--spacing-md);
+    padding-top: var(--spacing-sm);
+    border-top: 1px dashed var(--border-color);
+}
+.profile-gradient-level2 .achievements-preview {
+    border-top: 1px dashed color-mix(in srgb, var(--text-light) 50%, transparent);
+}
+
+.achievements-title {
+    font-size: 0.95rem !important; /* Ajustar tamaño */
+    font-weight: 600;
+    color: var(--text-main); /* Color base */
+    margin-bottom: var(--spacing-xs) !important;
+}
+.profile-gradient-level2 .achievements-title {
+    color: var(--text-light) !important;
+}
+
+
+.achievements-icons {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    flex-wrap: wrap; /* Para que los iconos pasen a la siguiente línea si no caben */
+}
+
+.achievements-icons span {
+    font-size: 1.8rem; /* Tamaño de los iconos emoji */
+    padding: var(--spacing-xs);
+    background-color: color-mix(in srgb, var(--accent-lavender) 30%, transparent);
+    border-radius: 50%;
+    width: 40px; /* Ancho y alto para círculos consistentes */
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 3px var(--shadow-color);
+    transition: transform 0.2s ease;
+}
+.achievements-icons span:hover {
+    transform: scale(1.15);
+}
+
+.profile-gradient-level2 .achievements-icons span {
+    background-color: color-mix(in srgb, var(--primary-pink) 40%, transparent);
+}

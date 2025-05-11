@@ -1,0 +1,65 @@
+.content-page {
+    background-color: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 4px 15px var(--shadow-color);
+    margin-top: var(--spacing-md);
+    color: var(--text-comfort); /* Color de texto base para contenido */
+}
+
+.content-page .page-title {
+    color: var(--primary-pink);
+    text-align: center;
+}
+
+.content-page .page-subtitle {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.15rem;
+    color: var(--text-comfort); /* Usar color de confort para subtitulo */
+}
+
+.content-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.content-section h2 {
+    font-family: var(--text-romantic-heading);
+    color: var(--secondary-purple);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px solid var(--accent-lavender);
+}
+
+.content-section p,
+.content-section ul,
+.content-section ol {
+    line-height: 1.7;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-main); /* Texto principal más oscuro para mejor lectura */
+}
+
+.content-section ul,
+.content-section ol {
+    padding-left: var(--spacing-lg);
+}
+
+.content-section li {
+    margin-bottom: var(--spacing-sm);
+}
+
+.content-section strong {
+    color: var(--primary-pink);
+    font-weight: 600;
+}
+
+.content-section a {
+    color: var(--secondary-purple);
+    font-weight: 600;
+    text-decoration: none;
+}
+.content-section a:hover {
+    color: var(--primary-pink);
+    text-decoration: underline;
+}

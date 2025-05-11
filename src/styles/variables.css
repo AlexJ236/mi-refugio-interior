@@ -1,0 +1,161 @@
+:root { /* Tema Por Defecto: Amanecer Rosado */
+    /* Paleta Principal */
+    --primary-pink: #FF85A1;
+    --secondary-purple: #A16AE8;
+    --accent-lavender: #D9B8FF;
+    
+    /* Fondos y Superficies */
+    --background-soft: #FFF0F5;
+    --background-alt: #FCE4EC;
+    --card-bg: #FFFFFF;
+    --overlay-bg: rgba(74, 13, 102, 0.4);
+  
+    /* Textos */
+    --text-main: #4A0D66;
+    --text-comfort: #732D91;
+    --text-light: #F5E6FF; /* Texto para fondos oscuros/vibrantes como el sidebar */
+    --text-placeholder: #BCA0DC;
+    --text-romantic-heading: 'Dancing Script', cursive;
+    --text-body-font: 'Nunito', sans-serif;
+  
+    /* Botones y Elementos Interactivos */
+    --button-primary-bg: var(--primary-pink);
+    --button-primary-text: var(--text-light); /* Usar text-light para contraste */
+    --button-primary-hover-bg: #E65C86;
+    --button-secondary-bg: var(--accent-lavender);
+    --button-secondary-text: var(--text-main);
+    --button-secondary-hover-bg: #C599FF;
+    
+    /* Bordes y Separadores */
+    --border-color: var(--accent-lavender);
+    --input-border-focus: var(--secondary-purple);
+  
+    /* Sombras */
+    --shadow-color: rgba(161, 106, 232, 0.15);
+    --shadow-strong-color: rgba(161, 106, 232, 0.25);
+  
+    /* Estados */
+    --success-color: #5D9C59;
+    --error-color: #D80032;
+    --warning-color: #FFB200;
+  
+    /* Tamaños y Espaciados */
+    --spacing-xs: 0.25rem; /* 4px */
+    --spacing-sm: 0.5rem;  /* 8px */
+    --spacing-md: 1rem;    /* 16px */
+    --spacing-lg: 1.5rem;  /* 24px */
+    --spacing-xl: 2rem;    /* 32px */
+    --spacing-xxl: 3rem;   /* 48px */
+  
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 16px;
+  
+    /* Transiciones */
+    --transition-fast: all 0.2s ease-in-out;
+    --transition-smooth: all 0.3s ease-in-out;
+
+    /* Variables del Sidebar */
+    --sidebar-text-color: var(--text-light); /* Texto claro para el sidebar */
+    --sidebar-link-hover-bg: rgba(255, 255, 255, 0.1);
+    --sidebar-link-active-bg: rgba(255, 255, 255, 0.2);
+    --sidebar-width-desktop: 260px; 
+    --sidebar-mobile-width: 280px;
+    /* Degradado del Sidebar para el tema por defecto */
+    --sidebar-bg-gradient: linear-gradient(170deg, var(--secondary-purple), var(--primary-pink));
+}
+
+/* --- TEMA: Sueño Lavanda --- */
+.theme-lavender-dream {
+    --primary-pink: #C6A7FF; /* Lavanda principal como "rosa primario" del tema */
+    --secondary-purple: #8A55E0; /* Morado más profundo como "morado secundario" */
+    --accent-lavender: #E9DBFF;
+    
+    --background-soft: #F8F5FF;
+    --background-alt: #EDE7F6;
+    --card-bg: #FFFFFF;
+    --overlay-bg: rgba(80, 40, 150, 0.45);
+  
+    --text-main: #3F2A6F;
+    --text-comfort: #6A4FAF;
+    --text-light: #FFFFFF; /* Mantener texto claro para sidebar */
+    --text-placeholder: #A08FCD;
+
+    --button-primary-bg: var(--primary-pink);
+    --button-primary-text: #2C005A; 
+    --button-primary-hover-bg: #B08FF0;
+    --button-secondary-bg: var(--accent-lavender);
+    --button-secondary-text: var(--text-main);
+    --button-secondary-hover-bg: #D4C3F7;
+    
+    --border-color: var(--accent-lavender);
+    --input-border-focus: var(--secondary-purple);
+  
+    --shadow-color: rgba(138, 85, 224, 0.15);
+    --shadow-strong-color: rgba(138, 85, 224, 0.25);
+
+    /* Degradado del Sidebar específico para Sueño Lavanda */
+    --sidebar-bg-gradient: linear-gradient(170deg, #8A55E0, #C6A7FF); /* Usar colores directos del tema */
+    /* --sidebar-text-color se hereda o se puede redefinir si es necesario */
+}
+
+/* --- TEMA: Océano Sereno --- */
+.theme-serene-ocean {
+    --primary-pink: #64C5EB; /* Azul claro principal como "rosa primario" */
+    --secondary-purple: #2D789E; /* Azul oscuro como "morado secundario" */
+    --accent-lavender: #B2EBF2; /* Azul muy pálido como "acento lavanda" */
+    
+    --background-soft: #E0F7FA;
+    --background-alt: #CFEEF3;
+    --card-bg: #FFFFFF;
+    --overlay-bg: rgba(0, 77, 109, 0.45);
+  
+    --text-main: #003C4D;
+    --text-comfort: #005F73;
+    --text-light: #FFFFFF; /* Mantener texto claro para sidebar */
+    --text-placeholder: #70A9B9;
+
+    --button-primary-bg: var(--primary-pink);
+    --button-primary-text: #002933;
+    --button-primary-hover-bg: #4AB0D3;
+    --button-secondary-bg: var(--accent-lavender);
+    --button-secondary-text: var(--text-main);
+    --button-secondary-hover-bg: #99DDE4;
+    
+    --border-color: var(--accent-lavender);
+    --input-border-focus: var(--secondary-purple);
+  
+    --shadow-color: rgba(45, 120, 158, 0.15);
+    --shadow-strong-color: rgba(45, 120, 158, 0.25);
+
+    /* Degradado del Sidebar específico para Océano Sereno */
+    --sidebar-bg-gradient: linear-gradient(170deg, #2D789E, #64C5EB); /* Usar colores directos del tema */
+    /* --sidebar-text-color se hereda */
+}
+
+body.custom-theme-active {
+    --sidebar-bg-gradient: linear-gradient(170deg, var(--secondary-purple), var(--primary-pink));
+}
+
+
+/* Aplicación de fuentes base */
+body {
+  font-family: var(--text-body-font);
+  color: var(--text-main);
+  background-color: var(--background-soft);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--text-romantic-heading);
+  /* El color se hereda o se especifica en componentes/global.css para que tome el del tema */
+}
+
+h1 { font-size: 2.8em; margin-bottom: var(--spacing-md); }
+h2 { font-size: 2.2em; margin-bottom: var(--spacing-sm); }
+h3 { font-size: 1.8em; margin-bottom: var(--spacing-sm); }
+
+p {
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}

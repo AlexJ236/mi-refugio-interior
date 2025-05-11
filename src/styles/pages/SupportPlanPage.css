@@ -1,0 +1,55 @@
+.support-plan-page {
+    padding: var(--spacing-md);
+  }
+  
+  .support-plan-page .page-title {
+    color: var(--primary-pink);
+  }
+  .support-plan-page .page-subtitle {
+      color: var(--text-comfort);
+      max-width: 750px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+  }
+  
+  .support-plan-form {
+    background-color: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 6px 20px var(--shadow-color);
+    max-width: 800px; /* Un poco más ancho para este formulario */
+    margin: var(--spacing-lg) auto;
+  }
+  
+  .support-plan-form h3 {
+    font-family: var(--text-romantic-heading);
+    color: var(--secondary-purple);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .support-plan-form .form-group {
+    margin-bottom: var(--spacing-xl); /* Más espacio entre grupos */
+  }
+  .support-plan-form .form-group label {
+      font-size: 1.15rem; /* Labels un poco más grandes */
+  }
+  
+  
+  .support-plan-form .btn-primary {
+    width: 100%;
+    padding: var(--spacing-md);
+    margin-top: var(--spacing-lg);
+  }
+  
+  .support-plan-loading, .support-plan-error {
+      text-align: center;
+      padding: var(--spacing-lg);
+  }
+  .support-plan-loading p {
+      color: var(--text-comfort);
+      font-size: 1.2rem;
+      margin-bottom: var(--spacing-md);
+  }

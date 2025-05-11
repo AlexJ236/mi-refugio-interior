@@ -1,0 +1,82 @@
+.modal-overlay-beautiful {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--overlay-bg); /* Usando variable de overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegúrate que esté por encima de otros contenidos */
+  padding: var(--spacing-md);
+}
+
+.modal-content-beautiful {
+  background-color: var(--card-bg);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 10px 30px var(--shadow-strong-color);
+  width: 100%;
+  max-width: 550px; /* Ancho máximo del modal */
+  animation: fadeInModal 0.4s ease-out;
+  position: relative; /* Para el botón de cerrar absoluto si se usa */
+}
+
+.modal-header-beautiful {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-title-beautiful {
+  font-family: var(--text-romantic-heading);
+  color: var(--primary-pink);
+  font-size: 2rem; /* Título más grande y decorativo */
+  margin: 0;
+}
+
+.modal-close-button-beautiful {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--text-comfort);
+  cursor: pointer;
+  padding: 0 var(--spacing-sm);
+  transition: color var(--transition-fast);
+}
+
+.modal-close-button-beautiful:hover {
+  color: var(--primary-pink);
+}
+
+.modal-body-beautiful {
+  margin-bottom: var(--spacing-xl);
+  font-size: 1.1rem;
+  color: var(--text-comfort);
+  line-height: 1.7;
+}
+
+.modal-body-beautiful p:last-child {
+  margin-bottom: 0;
+}
+
+.modal-actions-beautiful {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-md);
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

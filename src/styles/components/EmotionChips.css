@@ -1,0 +1,100 @@
+.emotion-chips-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .emotion-chip {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    background-color: var(--accent-lavender);
+    color: var(--text-main);
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: 0.9rem;
+  }
+  
+  .emotion-chip:hover {
+    background-color: var(--secondary-purple);
+    color: var(--text-light);
+  }
+  
+  .emotion-chip.selected {
+    background-color: var(--primary-pink);
+    color: var(--text-light);
+    border-color: var(--primary-pink);
+    font-weight: 600;
+  }
+  
+  .custom-emotion-input {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-sm);
+  }
+  .custom-emotion-input .input-field-group {
+      flex-grow: 1;
+      margin-bottom: 0;
+  }
+  .custom-emotion-input .btn { /* Para el botón de añadir personalizado */
+      flex-shrink: 0; /* Evita que el botón se encoja */
+  }
+  
+  
+  .selected-emotions-list {
+      margin-top: var(--spacing-md);
+      padding: var(--spacing-md);
+      background-color: var(--background-alt);
+      border-radius: var(--border-radius-md);
+  }
+  
+  .selected-emotion-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--spacing-sm);
+      margin-bottom: var(--spacing-sm);
+      padding: var(--spacing-xs) 0;
+  }
+  
+  .selected-emotion-item span:first-child {
+      color: var(--text-main);
+      font-weight: 600;
+      margin-right: var(--spacing-sm);
+      flex-basis: 120px;
+      flex-shrink: 0;
+  }
+  
+  .emotion-intensity-slider {
+      flex-grow: 1;
+      margin: 0 var(--spacing-sm);
+      accent-color: var(--primary-pink);
+      cursor: pointer;
+  }
+  .emotion-intensity-slider::-webkit-slider-thumb {
+      background: var(--secondary-purple);
+  }
+  .emotion-intensity-slider::-moz-range-thumb {
+      background: var(--secondary-purple);
+  }
+  
+  .selected-emotion-item .intensity-value {
+      font-weight: bold;
+      color: var(--primary-pink);
+      min-width: 20px;
+      text-align: center;
+  }
+  .emotion-remove-btn {
+      background: none;
+      border: none;
+      color: var(--error-color);
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0 var(--spacing-xs);
+      line-height: 1;
+  }
+  .emotion-remove-btn:hover {
+      color: darkred;
+  }

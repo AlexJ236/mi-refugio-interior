@@ -1,0 +1,69 @@
+.streaks-container {
+    display: flex;
+    flex-direction: column; /* Apilado en móvil por defecto */
+    justify-content: space-around;
+    gap: var(--spacing-lg); /* Más espacio entre items */
+    margin: var(--spacing-lg) auto;
+    padding: var(--spacing-lg); /* Más padding */
+    background-color: rgba(255, 255, 255, 0.6); /* Un fondo muy sutil y elegante */
+    border-radius: var(--border-radius-lg); /* Bordes más suaves */
+    box-shadow: 0 4px 15px var(--shadow-color); /* Sombra más notoria */
+    max-width: 700px;
+  }
+  
+  .streak-item {
+    text-align: center;
+    color: var(--text-comfort);
+    background-color: var(--card-bg); /* Fondo individual para cada item */
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .streak-item p.streak-title { /* Título del streak */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem; /* Un poco más grande */
+      font-weight: 600;
+      color: var(--secondary-purple);
+      margin-bottom: var(--spacing-sm);
+  }
+  
+  .streak-star {
+    margin: 0 var(--spacing-sm); /* Más margen */
+    color: var(--accent-lavender); /* Estrella apagada más suave */
+    transition: color 0.5s ease, filter 0.5s ease;
+    height: 32px; /* Ligeramente más grande */
+    width: 32px;
+  }
+  
+  .streak-star.filled {
+    color: #FFC107; /* Amarillo más vibrante */
+  }
+  .streak-star.filled.glowing {
+     filter: drop-shadow(0 0 8px #FFC107); /* Brillo más intenso */
+  }
+  
+  .streak-count {
+    font-weight: bold;
+    color: var(--primary-pink);
+    margin-left: var(--spacing-sm); /* Más espacio */
+    font-size: 1.1rem; /* Ligeramente más grande */
+  }
+  .streak-encouragement{
+      font-size: 0.95em; /* Un poco más grande */
+      font-style: italic;
+      color: var(--text-main);
+      margin-top: var(--spacing-xs); /* Pequeño margen superior */
+      display: block; /* Asegurar que esté en su propia línea */
+  }
+  
+  /* Media query para cuando haya más espacio */
+  @media (min-width: 500px) {
+    .streaks-container {
+      flex-direction: row; /* Lado a lado en pantallas más grandes */
+    }
+    .streak-item {
+      flex: 1; /* Que ocupen el espacio disponible */
+    }
+  }

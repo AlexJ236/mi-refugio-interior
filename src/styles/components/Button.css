@@ -1,0 +1,71 @@
+.btn {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-family: var(--text-body-font);
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none; /* Para cuando se usa como link */
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: none;
+}
+
+/* Variante Primaria (Rosa) */
+.btn-primary {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: var(--button-primary-hover-bg);
+  box-shadow: 0 4px 10px var(--shadow-strong-color);
+  transform: translateY(-2px);
+}
+
+/* Variante Secundaria (Lavanda) */
+.btn-secondary {
+  background-color: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+  border: 1px solid var(--secondary-purple);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background-color: var(--button-secondary-hover-bg);
+  border-color: var(--primary-pink);
+  color: var(--primary-pink);
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transform: translateY(-2px);
+}
+
+/* Variante de Texto/Link (Sutil) */
+.btn-link {
+  background-color: transparent;
+  color: var(--secondary-purple);
+  box-shadow: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+}
+
+.btn-link:hover:not(:disabled) {
+  color: var(--primary-pink);
+  text-decoration: underline;
+}
+
+/* Para botones de Logout o peligro */
+.btn-danger {
+  background-color: var(--error-color);
+  color: var(--text-light);
+}
+.btn-danger:hover:not(:disabled) {
+  background-color: #c5002b; /* Un rojo más oscuro */
+  box-shadow: 0 4px 10px var(--shadow-strong-color);
+}

@@ -1,0 +1,168 @@
+.interactive-guide-page {
+    padding: var(--spacing-lg);
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    margin-top: var(--spacing-md);
+}
+
+.interactive-guide-page .page-title {
+    color: var(--primary-pink);
+    margin-bottom: var(--spacing-sm);
+}
+
+.interactive-guide-page .page-subtitle {
+    color: var(--text-comfort);
+    margin-bottom: var(--spacing-xl);
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.back-to-skill-link {
+    display: inline-block;
+    margin-bottom: var(--spacing-lg);
+    color: var(--secondary-purple);
+    text-decoration: none;
+    font-weight: 600;
+}
+.back-to-skill-link:hover {
+    color: var(--primary-pink);
+    text-decoration: underline;
+}
+
+.guide-form {
+    margin-top: var(--spacing-lg);
+}
+
+.guide-step, .guide-section-content {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
+    border-left: 3px solid var(--accent-lavender);
+    background-color: var(--background-soft);
+    border-radius: var(--border-radius-sm);
+}
+.guide-section-details {
+    margin-bottom: var(--spacing-lg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+}
+.guide-section-details summary {
+    padding: var(--spacing-md);
+    font-weight: 600;
+    color: var(--secondary-purple);
+    background-color: var(--background-alt);
+    cursor: pointer;
+    border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+    font-family: var(--text-body-font); /* Asegurar fuente normal */
+    font-size: 1.2rem;
+}
+.guide-section-details[open] summary {
+    border-bottom: 1px solid var(--border-color);
+}
+
+
+.guide-form .input-label {
+    font-weight: bold;
+    color: var(--text-main);
+    margin-bottom: var(--spacing-xs);
+}
+.guide-form .input-element {
+    background-color: #fff;
+}
+
+.guide-example {
+    font-style: italic;
+    color: var(--text-comfort);
+    font-size: 0.9em;
+    margin-top: var(--spacing-xs);
+    padding-left: var(--spacing-md);
+    border-left: 2px dotted var(--accent-lavender);
+}
+
+.pros-cons-section .input-label {
+    font-size: 1rem;
+    margin-bottom: var(--spacing-xs);
+}
+.pros-cons-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-sm);
+    align-items: flex-start; /* Para que labels e inputs se alineen bien */
+}
+.pros-cons-row .input-field-group {
+    margin-bottom: 0; /* Quitar margen inferior de InputField */
+}
+
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-sm);
+}
+.input-checkbox {
+    width: auto; /* Permitir que el checkbox tome su tamaño natural */
+    height: auto;
+    margin-right: var(--spacing-sm);
+    accent-color: var(--primary-pink);
+}
+.input-label-checkbox {
+    font-weight: normal; /* El label del checkbox no necesita ser bold */
+    color: var(--text-main);
+    margin-bottom: 0; /* Resetear margen del label */
+}
+
+
+.submit-guide-button {
+    margin-top: var(--spacing-lg);
+    width: 100%;
+}
+
+.guide-conclusion {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-md);
+    background-color: var(--background-alt);
+    border-radius: var(--border-radius-md);
+    color: var(--text-comfort);
+    font-style: italic;
+    text-align: center;
+    border-left: 4px solid var(--primary-pink);
+}
+
+.loading-full-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 200px);
+    color: var(--text-comfort);
+}
+.loading-full-page p {
+    margin-top: var(--spacing-md);
+    font-size: 1.2rem;
+}
+
+.guide-divider {
+    margin: var(--spacing-lg) 0 var(--spacing-md) 0;
+    padding-bottom: var(--spacing-xs);
+    border-bottom: 1px dashed var(--accent-lavender);
+}
+.guide-divider h4 {
+    font-family: var(--text-body-font);
+    color: var(--secondary-purple);
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0;
+}
+
+.radio-option-label { /* Estilo para opciones de radio */
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-main);
+}
+.radio-option-label input {
+    margin-right: var(--spacing-sm);
+    accent-color: var(--primary-pink);
+}

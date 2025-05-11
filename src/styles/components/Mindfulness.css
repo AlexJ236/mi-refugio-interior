@@ -1,0 +1,92 @@
+.mindfulness-list-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-md) 0;
+  }
+  
+  .mindfulness-item-card {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    padding: var(--spacing-lg);
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    border-top: 5px solid var(--primary-pink); /* Acento de color */
+  }
+  
+  .mindfulness-item-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 25px var(--shadow-strong-color);
+  }
+  
+  .mindfulness-item-card h3 {
+    font-family: var(--text-romantic-heading);
+    color: var(--secondary-purple);
+    font-size: 1.9rem;
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .mindfulness-item-meta {
+    font-size: 0.9rem;
+    color: var(--text-comfort);
+    margin-bottom: var(--spacing-md);
+    font-style: italic;
+  }
+  
+  .mindfulness-item-meta span {
+    margin-right: var(--spacing-md);
+  }
+  
+  .mindfulness-item-description {
+    color: var(--text-main);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1; /* Para que la descripción ocupe espacio */
+  }
+  
+  .mindfulness-item-details {
+      margin-top: var(--spacing-md);
+      padding-top: var(--spacing-md);
+      border-top: 1px dashed var(--accent-lavender);
+  }
+  
+  .mindfulness-item-details h4 {
+      font-family: var(--text-body-font); /* Fuente normal para subtitulos de pasos */
+      color: var(--primary-pink);
+      font-size: 1.2rem;
+      margin-bottom: var(--spacing-sm);
+  }
+  
+  .mindfulness-item-details ul {
+      list-style: disc;
+      padding-left: var(--spacing-lg);
+      margin-bottom: var(--spacing-md);
+  }
+  
+  .mindfulness-item-details li {
+      margin-bottom: var(--spacing-xs);
+      color: var(--text-comfort);
+  }
+  
+  .mindfulness-item-affirmation {
+      font-style: italic;
+      color: var(--secondary-purple);
+      text-align: center;
+      padding: var(--spacing-sm);
+      background-color: var(--background-alt);
+      border-radius: var(--border-radius-sm);
+      margin-top: var(--spacing-md);
+  }
+  
+  .mindfulness-empty-message {
+    text-align: center;
+    color: var(--text-comfort);
+    font-size: 1.2rem;
+    padding: var(--spacing-xl);
+    background-color: rgba(220, 200, 255, 0.6); /* Fondo lavanda muy suave */
+    border-radius: var(--border-radius-md);
+    border: 1px dashed var(--secondary-purple);
+  }

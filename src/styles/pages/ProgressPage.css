@@ -1,0 +1,179 @@
+.progress-page {
+    padding-bottom: var(--spacing-xxl);
+}
+.progress-page .page-title {
+    color: var(--secondary-purple);
+    margin-bottom: var(--spacing-sm);
+}
+.progress-page .page-subtitle, 
+.progress-page .note-sensitive,
+.progress-page .text-center p { /* Para mensajes de carga o "sin datos" */
+    color: var(--text-comfort);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+.progress-page .note-sensitive {
+    font-style: italic;
+    font-size: 0.9em;
+    margin-top: var(--spacing-xl);
+}
+.progress-page .highlight-link {
+    color: var(--primary-pink);
+    font-weight: bold;
+    text-decoration: none;
+}
+.progress-page .highlight-link:hover {
+    color: var(--secondary-purple);
+    text-decoration: underline;
+}
+
+.current-streaks-summary {
+    display: flex;
+    flex-wrap: wrap; /* Para que se ajuste en pantallas pequeñas */
+    justify-content: center;
+    gap: var(--spacing-lg) var(--spacing-xl); /* Más gap horizontal */
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-md);
+    background-color: color-mix(in srgb, var(--card-bg) 90%, transparent);
+    border-radius: var(--border-radius-md);
+    font-size: 1.1rem;
+    color: var(--text-main);
+    text-align: center;
+}
+.current-streaks-summary p {
+    margin-bottom: 0; /* Resetear margen de los párrafos internos */
+}
+.current-streaks-summary p strong {
+    font-family: var(--text-romantic-heading);
+    font-size: 1.7em; /* Hacer el número más grande */
+    color: var(--primary-pink);
+    margin-right: var(--spacing-xs);
+    line-height: 1; /* Ajustar interlineado del número */
+}
+.current-streaks-summary p:last-child strong { /* Para el segundo strong, otro color */
+    color: var(--secondary-purple);
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto 1 columna en móvil */
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-lg);
+}
+
+/* En pantallas más grandes, 2 columnas para los primeros gráficos,
+   y los de racha ocuparán todo el ancho si se les da la clase full-width-chart */
+@media (min-width: 992px) { 
+    .charts-grid {
+        grid-template-columns: repeat(2, 1fr); /* Hasta dos columnas */
+    }
+    .chart-container.full-width-chart {
+        grid-column: 1 / -1; /* Ocupa todas las columnas disponibles */
+    }
+}
+@media (max-width: 991.98px) and (min-width: 600px) {
+    /* Para tablets y pantallas medianas */
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.chart-container {
+    background-color: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 5px 15px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el gráfico si es más pequeño que el contenedor */
+    min-height: 400px; /* Altura mínima uniforme */
+    overflow: hidden; /* Para que las etiquetas no se salgan del contenedor */
+}
+
+.chart-container h3 {
+    font-family: var(--text-romantic-heading);
+    color: var(--primary-pink);
+    margin-bottom: var(--spacing-md);
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.chart-container > p { /* Para los placeholders de gráficos o mensajes de "sin datos" */
+    color: var(--text-comfort);
+    text-align: center;
+    font-style: italic;
+    min-height: 150px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1; 
+    padding: var(--spacing-md);
+}
+
+/* Estilos específicos para Recharts */
+.recharts-responsive-container {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 280px;
+}
+
+.recharts-wrapper {
+    font-family: var(--text-body-font) !important;
+    color: var(--text-main) !important;
+}
+
+.recharts-legend-wrapper {
+    bottom: -5px !important;
+    padding-top: 10px !important; /* Espacio sobre la leyenda */
+    font-size: 13px;
+}
+
+.recharts-legend-item {
+    margin-right: 10px !important;
+}
+.recharts-legend-item-text {
+    color: var(--text-main) !important;
+    font-size: 0.8rem !important;
+    padding-left: 2px; /* Pequeño espacio después del icono de leyenda */
+}
+
+.custom-recharts-tooltip { /* Estilo para el tooltip personalizado */
+    background-color: color-mix(in srgb, var(--card-bg) 95%, transparent) !important;
+    border: 1px solid var(--border-color) !important;
+    border-radius: var(--border-radius-sm) !important;
+    box-shadow: 0 2px 5px var(--shadow-color) !important;
+    padding: var(--spacing-sm) var(--spacing-md) !important;
+    font-size: 0.9rem;
+}
+.custom-recharts-tooltip .tooltip-label {
+    font-weight: bold;
+    margin-bottom: var(--spacing-xs);
+    color: var(--text-main);
+}
+
+
+.recharts-cartesian-axis-tick-value {
+    fill: var(--text-comfort) !important;
+    font-size: 0.75rem !important;
+}
+
+/* Para etiquetas de PieChart */
+.recharts-pie-label-text {
+     fill: var(--text-main) !important; /* Un color que contraste con la mayoría de los segmentos */
+     font-size: 11px !important;
+     font-weight: 500 !important;
+     paint-order: stroke;
+     stroke: var(--card-bg); /* Borde del color del fondo para legibilidad */
+     stroke-width: 2px;
+     stroke-linecap: butt;
+     stroke-linejoin: miter;
+}
+
+.recharts-active-dot circle { /* Punto activo en LineChart */
+    stroke-width: 2px !important;
+    stroke: var(--card-bg) !important; /* Borde blanco para destacar */
+}

@@ -1,0 +1,82 @@
+.emotion-wheel-container {
+    padding: var(--spacing-md);
+    margin: var(--spacing-lg) 0;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    background-color: var(--background-alt);
+}
+
+.emotion-wheel-container h4 {
+    font-family: var(--text-romantic-heading);
+    color: var(--secondary-purple);
+    text-align: center;
+    margin-bottom: var(--spacing-sm);
+}
+.emotion-wheel-instructions, .emotion-wheel-note {
+    font-size: 0.9rem;
+    color: var(--text-comfort);
+    text-align: center;
+    margin-bottom: var(--spacing-md);
+}
+.emotion-wheel-note {
+    margin-top: var(--spacing-md);
+    font-style: italic;
+}
+
+
+.emotion-section {
+    margin-bottom: var(--spacing-lg);
+}
+
+.emotion-section h5 {
+    font-family: var(--text-body-font);
+    color: var(--primary-pink);
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.emotion-chips-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+}
+
+.emotion-chip-wheel {
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: var(--border-radius-lg);
+    border: 2px solid var(--emotion-color, var(--accent-lavender));
+    background-color: #fff;
+    color: var(--emotion-color, var(--text-main));
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    font-size: 0.9rem;
+    min-width: 80px;
+    text-align: center;
+}
+
+.emotion-chip-wheel:hover {
+    background-color: var(--emotion-color, var(--accent-lavender));
+    color: var(--text-light);
+    transform: scale(1.05);
+}
+
+.emotion-chip-wheel.selected {
+    background-color: var(--emotion-color, var(--primary-pink));
+    color: var(--text-light);
+    font-weight: bold;
+    box-shadow: 0 0 8px 0px color-mix(in srgb, var(--emotion-color, var(--primary-pink)) 50%, transparent);
+}
+
+.emotion-chip-wheel[style*="--emotion-color: #FFEB3B;"], /* Amarillo */
+.emotion-chip-wheel[style*="--emotion-color: #FFEE58;"]  /* Amarillo claro */
+ {
+    color: #333; /* Texto oscuro para emociones claras */
+}
+.emotion-chip-wheel[style*="--emotion-color: #FFEB3B;"].selected,
+.emotion-chip-wheel[style*="--emotion-color: #FFEE58;"].selected {
+    color: #333;
+}

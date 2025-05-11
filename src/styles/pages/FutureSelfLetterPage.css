@@ -1,0 +1,125 @@
+.future-letter-page {
+    padding-bottom: var(--spacing-xxl); /* Espacio para el final de la página */
+}
+
+.future-letter-page .page-title {
+    color: var(--secondary-purple);
+}
+.future-letter-page .page-subtitle {
+    color: var(--text-comfort);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.future-letter-form h3 {
+    font-family: var(--text-romantic-heading);
+    color: var(--primary-pink);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.letters-history {
+    margin-top: var(--spacing-xxl);
+}
+.letters-history h2 {
+    font-family: var(--text-romantic-heading);
+    color: var(--secondary-purple);
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: var(--spacing-lg);
+}
+
+.letter-list {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: var(--spacing-lg);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.letter-item {
+    background-color: var(--card-bg);
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius-md);
+    box-shadow: 0 4px 12px var(--shadow-color);
+    border-left: 5px solid var(--accent-lavender);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.letter-item.delivered {
+    border-left-color: var(--success-color);
+    opacity: 0.8;
+}
+.letter-item.ready-to-read { /* Para cuando esté lista pero no notificada */
+    border-left-color: var(--primary-pink);
+}
+
+
+.letter-item h4 {
+    font-family: var(--text-body-font);
+    color: var(--text-main);
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: var(--spacing-sm);
+}
+.letter-item-content-preview {
+    font-size: 0.95rem;
+    color: var(--text-comfort);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1; /* Para que ocupe espacio si el título es corto */
+    font-style: italic;
+}
+
+.letter-item-date, .letter-item-status {
+    font-size: 0.85rem;
+    color: var(--text-main);
+    opacity: 0.9;
+    margin-bottom: var(--spacing-xs);
+}
+.letter-item-status strong {
+    font-weight: bold;
+}
+
+.letter-item-actions {
+    margin-top: var(--spacing-md);
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: flex-end;
+}
+.letter-item-actions .btn-sm {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: 0.9rem;
+}
+
+/* Modal para mostrar carta entregada */
+.delivered-letter-modal-content {
+    text-align: center;
+}
+.delivered-letter-modal-content h3 { /* Título de la carta en el modal */
+    font-family: var(--text-romantic-heading);
+    color: var(--primary-pink);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+}
+.delivered-letter-modal-content .letter-text-display {
+    white-space: pre-wrap; /* Para respetar saltos de línea */
+    text-align: left;
+    background-color: var(--background-soft);
+    padding: var(--spacing-md);
+    border-radius: var(--border-radius-sm);
+    max-height: 50vh;
+    overflow-y: auto;
+    color: var(--text-main);
+    line-height: 1.7;
+    margin-bottom: var(--spacing-lg);
+}
+.delivered-letter-modal-content .letter-date-info {
+    font-size: 0.9rem;
+    color: var(--text-comfort);
+    margin-bottom: var(--spacing-lg);
+}

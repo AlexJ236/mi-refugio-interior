@@ -1,0 +1,35 @@
+.settings-page {
+    padding: var(--spacing-md);
+  }
+  
+  .settings-page .page-title {
+    color: var(--secondary-purple);
+  }
+  .settings-page .page-subtitle {
+      color: var(--text-comfort);
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+  
+  .settings-form-section {
+    background-color: var(--card-bg);
+    padding: var(--spacing-xl);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 6px 20px var(--shadow-color);
+    max-width: 600px;
+    margin: var(--spacing-lg) auto;
+  }
+  
+  .settings-form-section h3 {
+    font-family: var(--text-romantic-heading);
+    color: var(--primary-pink);
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  
+  .settings-form .btn-primary {
+    width: 100%;
+    margin-top: var(--spacing-md);
+  }

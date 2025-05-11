@@ -1,0 +1,37 @@
+.btn-pause-feature {
+    background-color: var(--warning-color); /* Un color que llame la atención pero no sea tan alarmante como SOS */
+    color: var(--text-main); /* Texto oscuro para contraste con amarillo/naranja */
+    font-weight: bold;
+    border: 1px solid var(--text-main);
+    padding: var(--spacing-sm) var(--spacing-md);
+    position: fixed; /* O absolute, dependiendo de dónde lo quieras */
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    z-index: 1050; /* Encima de contenido, debajo de modales SOS si es necesario */
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+.btn-pause-feature:hover {
+    background-color: color-mix(in srgb, var(--warning-color) 80%, black);
+    color: var(--text-light);
+}
+
+
+.pause-modal-content {
+    text-align: center;
+    color: var(--text-comfort);
+}
+.pause-modal-content h4 {
+    font-family: var(--text-romantic-heading);
+    color: var(--primary-pink);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-md);
+}
+.pause-modal-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+}
+.pause-modal-content p a {
+    color: var(--secondary-purple);
+    font-weight: bold;
+}

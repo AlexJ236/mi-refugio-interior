@@ -1,0 +1,84 @@
+.btn-sos {
+    background-color: var(--error-color);
+    color: var(--text-light);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius-md);
+    font-weight: bold;
+    border: 1px solid transparent; /* Para consistencia */
+    line-height: 1.4; /* Mejorar legibilidad */
+  }
+  .btn-sos:hover, .btn-sos:focus {
+    background-color: #c5002b; /* Más oscuro en hover/focus */
+    box-shadow: 0 0 8px var(--error-color);
+  }
+  
+  .sos-modal-content {
+    color: var(--text-comfort);
+  }
+  .sos-message {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--primary-pink);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--background-alt);
+    border-radius: var(--border-radius-sm);
+    text-align: center;
+    line-height: 1.5;
+  }
+  .sos-section {
+    margin-bottom: var(--spacing-lg);
+  }
+  .sos-section h4 {
+    font-family: var(--text-romantic-heading);
+    color: var(--secondary-purple);
+    font-size: 1.6rem; /* Un poco más grande */
+    margin-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--accent-lavender);
+    padding-bottom: var(--spacing-xs);
+  }
+  .sos-section p, .sos-section ul {
+    font-size: 1.05rem; /* Un poco más grande */
+    line-height: 1.7; /* Mejor interlineado */
+  }
+  .sos-contact-list {
+      list-style: none;
+      padding-left: 0;
+  }
+  .sos-contact-list li {
+      padding: var(--spacing-sm) 0; /* Más padding vertical */
+      border-bottom: 1px dashed var(--accent-lavender);
+      line-height: 1.5;
+  }
+  .sos-contact-list li:last-child {
+      border-bottom: none;
+  }
+  .sos-contact-list a {
+      color: var(--primary-pink);
+      font-weight: 600;
+      text-decoration: none;
+  }
+  .sos-contact-list a:hover {
+      text-decoration: underline;
+      color: var(--secondary-purple);
+  }
+  
+  .sos-modal-content .btn-primary { /* Botón dentro del modal SOS */
+      width: 100%;
+      margin-top: var(--spacing-lg);
+      padding: var(--spacing-md);
+      font-size: 1.1rem;
+  }
+  
+  /* Responsive para SOS Modal (contenido interno) */
+  @media (max-width: 480px) {
+    .sos-message {
+      font-size: 1.05rem;
+    }
+    .sos-section h4 {
+      font-size: 1.4rem;
+    }
+    .sos-section p, .sos-section ul {
+      font-size: 0.95rem;
+    }
+  }
