@@ -10,9 +10,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       injectRegister: 'auto',
       devOptions: {
-        enabled: true 
+        enabled: true // Para probar PWA en desarrollo
       },
-      workbox: {
+      workbox: { // Para cacheo básico y offline
         globPatterns: ['**/*.{js,css,html,ico,png,svg,json,woff2}']
       }
     })
