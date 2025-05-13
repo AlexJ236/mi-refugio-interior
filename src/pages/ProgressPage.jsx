@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import useAuth from '../hooks/useAuth';
-import { getDailyCardsByUserId } from '../lib/dailyCardService';
-import { getGratitudeEntriesByUserId } from '../lib/gratitudeService';
-import { generateDailyActivityData, calculateStreakForChart, getCurrentStreak } from '../lib/chartUtils';
+import { getDailyCardsByUserId } from '../lib/dailyCardService'; 
+import { getGratitudeEntriesByUserId } from '../lib/gratitudeService'; 
+import { generateDailyActivityData, calculateStreakForChart, getCurrentStreak } from '../lib/chartUtils'; 
 import { InlineSpinner } from '../components/common/LoadingSpinner';
 import { Link } from 'react-router-dom';
 import { PieChart, Pie, Cell, Tooltip, Legend, BarChart, Bar, XAxis, YAxis, CartesianGrid, ResponsiveContainer, LineChart, Line } from 'recharts';
@@ -15,7 +15,7 @@ const ProgressPage = () => {
   const [isLoadingData, setIsLoadingData] = useState(true);
   const [error, setError] = useState(null);
 
-  const endDateForStreaks = new Date(); // Hoy
+  const endDateForStreaks = new Date(); 
   const startDateForStreaks = new Date();
   startDateForStreaks.setUTCDate(endDateForStreaks.getUTCDate() - 29); // Últimos 30 días
 
@@ -26,7 +26,7 @@ const ProgressPage = () => {
   ];
 
   const fetchDataForGraphs = useCallback(async () => {
-    if (!currentUser) {
+    if (!currentUser?.$id) {
       setIsLoadingData(false);
       return;
     }
@@ -46,17 +46,17 @@ const ProgressPage = () => {
       setAllGratitudeEntries(gratitudes || []);
     } catch (err) {
       console.error("Error cargando datos para progreso:", err);
-      setError("No pudimos cargar tus datos de progreso en este momento, mi amor. Intenta refrescar la página.");
+      setError("No pudimos cargar tus datos de progreso en este momento. Intenta refrescar la página.");
     } finally {
       setIsLoadingData(false);
     }
-  }, [currentUser, userPreferences]); // Depender de userPreferences para re-evaluar
+  }, [currentUser, userPreferences]);
 
   useEffect(() => {
     if (!isLoadingPreferences && currentUser) { 
       fetchDataForGraphs();
-    } else if (!currentUser && !isLoadingPreferences) { // Si no hay usuario y las prefs no cargan (o no hay)
-        setIsLoadingData(false); // Detener carga si no hay usuario
+    } else if (!currentUser && !isLoadingPreferences) {
+        setIsLoadingData(false);
     }
   }, [fetchDataForGraphs, isLoadingPreferences, currentUser]);
 
@@ -66,8 +66,8 @@ const ProgressPage = () => {
     allDailyCards.forEach(card => {
       if (card.cardData && Array.isArray(card.cardData.emotions)) {
         card.cardData.emotions.forEach(emotionObj => {
-          const name = (typeof emotionObj === 'string' ? emotionObj.trim() : (emotionObj.name || '').trim()) || "Sin nombre";
-          if (name) {
+          const name = (typeof emotionObj === 'string' ? emotionObj.trim() : (emotionObj?.name || '').trim());
+          if (name && name.toLowerCase() !== "sin nombre") { 
             emotionCount[name] = (emotionCount[name] || 0) + 1;
           }
         });
@@ -84,14 +84,15 @@ const ProgressPage = () => {
     const skillCount = {};
     allDailyCards.forEach(card => {
         if (card.cardData && card.cardData.skillsUsed && typeof card.cardData.skillsUsed === 'string') {
-            const skills = card.cardData.skillsUsed.split(/[\n,;]+/) // Separar por más delimitadores
+            const skills = card.cardData.skillsUsed.split(/[\n,;]+/) 
                                 .map(s => s.trim().toLowerCase())
-                                .filter(s => s && s.length > 1); // Filtrar vacíos y muy cortos
+                                .filter(s => s && s.length > 1 && s.length < 50);
             
             skills.forEach(skillName => {
-                let normalizedSkill = skillName.replace(/\b(habilidad|habilidades|de|con|el|la|los|las|un|una|unos|unas|mi|mis|para)\b/gi, '').trim();
+                let normalizedSkill = skillName.replace(/\b(habilidad|habilidades|de|con|el|la|los|las|un|una|unos|unas|mi|mis|para|usar|técnica|ejercicio)\b/gi, '').trim();
                 normalizedSkill = normalizedSkill.replace(/[^a-záéíóúñü\s0-9-]/gi, '');
                 normalizedSkill = normalizedSkill.split('(')[0].trim();
+                
                 if (normalizedSkill.length > 25) normalizedSkill = normalizedSkill.substring(0,25) + "...";
                 
                 if (normalizedSkill) {
@@ -116,7 +117,6 @@ const ProgressPage = () => {
   const currentDailyStreakNum = getCurrentStreak(allDailyCards);
   const currentGratitudeStreakNum = getCurrentStreak(allGratitudeEntries);
 
-  // Renderizado condicional principal
   if (isLoadingPreferences || (!currentUser && isLoadingData)) {
     return (
         <div className="progress-page container text-center" style={{ minHeight: 'calc(100vh - 200px)', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
@@ -131,19 +131,18 @@ const ProgressPage = () => {
         <div className="progress-page container text-center">
             <h1 className="page-title">Tu Jardín de Crecimiento</h1>
             <p className="page-subtitle">
-                Para ver tu progreso, necesitas <Link to="/login" className="highlight-link">iniciar sesión</Link> en tu refugio, mi amor.
+                Para ver tu progreso, necesitas <Link to="/login" className="highlight-link">iniciar sesión</Link> en tu refugio.
             </p>
         </div>
       );
   }
   
-  // userPreferences debería estar definido si currentUser existe y isLoadingPreferences es false
-  if (!userPreferences || typeof userPreferences.showProgressGraphs !== 'boolean' || !userPreferences.showProgressGraphs) {
+  if (userPreferences && typeof userPreferences.showProgressGraphs === 'boolean' && !userPreferences.showProgressGraphs) {
     return (
       <div className="progress-page container text-center">
         <h1 className="page-title">Tu Jardín de Crecimiento</h1>
         <p className="page-subtitle">
-          La visualización de progreso está desactivada en tus preferencias, cariño.
+          La visualización de progreso está desactivada en tus preferencias.
           Puedes activarla en <Link to="/settings" className="highlight-link">Ajustes</Link> si deseas ver tu camino reflejado aquí.
         </p>
       </div>
@@ -166,20 +165,49 @@ const ProgressPage = () => {
   const emotionChartData = getEmotionFrequency();
   const skillUsageChartData = getSkillUsageFrequency();
 
-  const CustomTooltip = ({ active, payload, label }) => {
+  const CustomTooltipContent = ({ active, payload, label }) => {
     if (active && payload && payload.length) {
       return (
         <div className="custom-recharts-tooltip">
           <p className="tooltip-label">{`${label}`}</p>
           {payload.map((pld, index) => (
             <p key={index} style={{ color: pld.color || pld.fill }}>
-              {`${pld.name} : ${pld.value}`}
+              {`${pld.name} : ${pld.value.toLocaleString()}`}
             </p>
           ))}
         </div>
       );
     }
     return null;
+  };
+
+  const renderCustomPieLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, name, fill }) => {
+    if (percent * 100 < 4) return null; 
+
+    const RADIAN = Math.PI / 180;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.5; 
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
+    
+    // Determinar color del texto basado en el color de fondo del segmento para mejor contraste
+    let textColor = 'var(--text-main-inverted)'; // Default para colores oscuros de segmento
+    if (fill && (fill.includes('lavender') || fill.includes('FFB300') || fill.includes('8BC34A') || fill.includes('CDDC39'))) {
+        textColor = 'var(--text-main)'; // Usar color oscuro para segmentos claros
+    }
+
+
+    return (
+      <text 
+        x={x} y={y} 
+        fill={textColor}
+        textAnchor="middle" 
+        dominantBaseline="central" 
+        fontSize="12px" 
+        fontWeight="bold"
+      >
+        {`${name} (${(percent * 100).toFixed(0)}%)`}
+      </text>
+    );
   };
 
   return (
@@ -196,7 +224,7 @@ const ProgressPage = () => {
 
       <div className="charts-grid">
         <section className="chart-container">
-          <h3>Tus Emociones Más Presentes (Últimas entradas)</h3>
+          <h3>Tus Emociones Más Presentes</h3>
           {(allDailyCards.length > 0 && emotionChartData.length > 0) ? (
             <ResponsiveContainer width="100%" height={350}>
               <PieChart>
@@ -206,20 +234,16 @@ const ProgressPage = () => {
                   nameKey="name" 
                   cx="50%" 
                   cy="50%" 
-                  outerRadius={100}
-                  labelLine={{ stroke: 'var(--text-comfort)', strokeWidth: 1 }}
-                  label={({ name, percent, x, y, textAnchor, fill }) => (
-                    percent * 100 < 4 ? null : // No mostrar etiquetas muy pequeñas
-                    <text x={x} y={y} fill={fill} textAnchor={textAnchor} dominantBaseline="central" fontSize="13px" fontWeight="500">
-                      {`${name} (${(percent * 100).toFixed(0)}%)`}
-                    </text>
-                  )}
+                  outerRadius={110}
+                  innerRadius={50}
+                  labelLine={false}
+                  label={renderCustomPieLabel}
                 >
                   {emotionChartData.map((entry) => (
                     <Cell key={`cell-emotion-${entry.name}`} fill={entry.fill} />
                   ))}
                 </Pie>
-                <Tooltip content={<CustomTooltip />}/>
+                <Tooltip content={<CustomTooltipContent />}/>
                 <Legend iconSize={12} wrapperStyle={{fontSize: "13px", paddingTop: "15px"}}/>
               </PieChart>
             </ResponsiveContainer>
@@ -232,12 +256,11 @@ const ProgressPage = () => {
           <h3>Habilidades Más Utilizadas</h3>
           {(allDailyCards.length > 0 && skillUsageChartData.length > 0) ? (
             <ResponsiveContainer width="100%" height={350}>
-               <BarChart data={skillUsageChartData} layout="vertical" margin={{ top: 5, right: 30, left: 20, bottom: 20 }}>
+               <BarChart data={skillUsageChartData} layout="vertical" margin={{ top: 5, right: 30, left: 30, bottom: 20 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border-color)"/>
                 <XAxis type="number" allowDecimals={false} tick={{fontSize: 11, fill: 'var(--text-comfort)'}} />
-                <YAxis dataKey="name" type="category" width={130} tick={{fontSize: 12, fill: 'var(--text-main)'}}/>
-                <Tooltip content={<CustomTooltip />} cursor={{fill: 'var(--background-alt)'}}/>
-                <Legend wrapperStyle={{fontSize: "13px", paddingTop: "15px"}}/>
+                <YAxis dataKey="name" type="category" width={120} tick={{fontSize: 12, fill: 'var(--text-main)'}} tickLine={false} axisLine={false}/>
+                <Tooltip content={<CustomTooltipContent />} cursor={{fill: 'var(--background-alt)'}}/>
                 <Bar dataKey="value" name="Usos" barSize={20}>
                     {skillUsageChartData.map((entry) => (
                         <Cell key={`cell-skill-${entry.name}`} fill={entry.fill} />
@@ -257,10 +280,10 @@ const ProgressPage = () => {
               <LineChart data={dailyStreakChartData} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border-color)"/>
                 <XAxis dataKey="date" tick={{fontSize: 11, fill: 'var(--text-comfort)'}} />
-                <YAxis allowDecimals={false} tick={{fill: 'var(--text-comfort)'}} domain={[0, 'dataMax + 1']}/>
-                <Tooltip content={<CustomTooltip />}/>
-                <Legend wrapperStyle={{fontSize: "13px"}}/>
-                <Line type="monotone" dataKey="dailyStreak" stroke="var(--primary-pink)" name="Racha Diario" activeDot={{ r: 7 }} strokeWidth={2.5} dot={{r: 3}} />
+                <YAxis allowDecimals={false} tick={{fontSize: 11, fill: 'var(--text-comfort)'}} domain={[0, 'dataMax + 1']}/>
+                <Tooltip content={<CustomTooltipContent />}/>
+                <Legend wrapperStyle={{fontSize: "13px"}} verticalAlign="top" height={36}/>
+                <Line type="monotone" dataKey="dailyStreak" stroke="var(--primary-pink)" name="Racha Diario" activeDot={{ r: 7 }} strokeWidth={2.5} dot={{r: 4, strokeWidth: 2, fill: 'var(--primary-pink)'}} />
               </LineChart>
             </ResponsiveContainer>
           ) : (
@@ -275,10 +298,10 @@ const ProgressPage = () => {
               <LineChart data={gratitudeStreakChartData} margin={{ top: 5, right: 30, left: 0, bottom: 5 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="var(--border-color)"/>
                 <XAxis dataKey="date" tick={{fontSize: 11, fill: 'var(--text-comfort)'}}/>
-                <YAxis allowDecimals={false} tick={{fill: 'var(--text-comfort)'}} domain={[0, 'dataMax + 1']}/>
-                <Tooltip content={<CustomTooltip />}/>
-                <Legend wrapperStyle={{fontSize: "13px"}}/>
-                <Line type="monotone" dataKey="gratitudeStreak" stroke="var(--secondary-purple)" name="Racha Gratitud" activeDot={{ r: 7 }} strokeWidth={2.5} dot={{r: 3}}/>
+                <YAxis allowDecimals={false} tick={{fontSize: 11, fill: 'var(--text-comfort)'}} domain={[0, 'dataMax + 1']}/>
+                <Tooltip content={<CustomTooltipContent />}/>
+                <Legend wrapperStyle={{fontSize: "13px"}} verticalAlign="top" height={36}/>
+                <Line type="monotone" dataKey="gratitudeStreak" stroke="var(--secondary-purple)" name="Racha Gratitud" activeDot={{ r: 7 }} strokeWidth={2.5} dot={{r: 4, strokeWidth: 2, fill: 'var(--secondary-purple)'}}/>
               </LineChart>
             </ResponsiveContainer>
           ) : (
@@ -287,7 +310,7 @@ const ProgressPage = () => {
         </section>
       </div>
       <p className="text-center note-sensitive">
-          Recuerda, estos gráficos son solo una forma de observar patrones con curiosidad y amor, no una medida de "éxito". Tu camino es único y valioso, chiquita.
+          Recuerda, estos gráficos son solo una forma de observar patrones con curiosidad y amor, no una medida de "éxito". Tu camino es único y valioso.
       </p>
     </div>
   );
