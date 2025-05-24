@@ -82,7 +82,7 @@ const Sidebar = () => {
   return (
     <>
       {/* Sidebar para escritorio */}
-      {!isSidebarOpenMobile && ( // NUEVA CONDICIÓN: Solo mostrar si el sidebar NO está abierto
+      {!isSidebarOpenMobile && (
           <button
             className="sidebar-mobile-toggle"
             onClick={toggleMobileSidebar}
