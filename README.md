@@ -37,8 +37,8 @@
 
 1.  **Clone the Repository:**
     ```bash
-    git clone [https://YOUR-REPOSITORY-URL.git](https://YOUR-REPOSITORY-URL.git)
-    cd project-directory-name
+    git clone [https://github.com/AlexJ236/Mi-Refugio-Interior](https://github.com/AlexJ236/Mi-Refugio-Interior)
+    cd Mi-Refugio-Interior
     ```
 
 2.  **Install Dependencies:**
